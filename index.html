@@ -1,0 +1,305 @@
+# JazzyCat200.github.io
+//CodeBreaker!
+
+//variables used:
+var textY = 60; //textY - y-value used for text on the introScreen
+var i = 0;//i - first number of code
+var j = 0;//j - second number of code
+var k = 0;//k - third number of code
+//gameScreen - basic screen for the game, looks like a living room and dining room
+var gameScreen = function() {
+  //Room
+        noStroke();
+        background(162, 196, 222);
+        //rug
+        fill(255, 125, 177);//carpet color
+        rect(100, 50, 200, 120);//main rectangle of carpet
+        fill(89, 72, 219);//inside rectangle color
+        rect(140, 70, 120, 80);//inside rectangle of carpet
+        fill(124, 42, 145);//triangle color
+        //tv
+        fill(122, 81, 38);//table color
+        rect(130, 5, 140, 40);//table under tv
+        fill(0, 0, 0);//tv color
+        rect(155, 13, 90, 8);//tv body
+        ellipse(165, 17, 6, 20);//left tv leg
+        ellipse(235, 17, 6, 20);//right tv leg
+        //movie
+        fill(122, 122, 122);//color inside movie
+        stroke(0, 0, 0);
+        strokeWeight(2);
+        rect(135, 20, 15, 20);//movie
+        noStroke();
+        fill(71, 180, 230);
+        rect(136, 33, 13, 6);//water on bottom of movie
+        fill(0, 0, 0);
+        text("5", 137, 38);//number 5 on the movie
+        //couch
+        stroke(77, 77, 77);//adds shadow-like stroke to couch
+        strokeWeight(1);
+        fill(240, 149, 53);//coin color
+        ellipse(118, 180, 7, 7);//coin under couch
+        fill(115, 115, 115);//couch color
+        rect(118, 175, 83, 41);//left cushion
+        rect(200, 175, 83, 41);//right cushion
+        rect(107, 217, 187, 15);//back of couch
+        rect(107, 182, 10, 35);//left arm
+        rect(284, 182, 10, 35);//right arm
+        //coffee table
+        fill(168, 213, 227);
+        ellipse(200, 110, 166, 83);
+        //tissue box
+        noStroke();
+        fill(191, 19, 68);//main tissue box color
+        rect(144, 102, 34, 15);//tissue box
+        fill(214, 214, 214);//oval inside tissue box color
+        ellipse(161, 109, 22, 8);//oval inside tissue box
+        //cup
+        fill(41, 115, 16);//coasters color
+        rect(175, 126, 12, 12);//left coaster
+        rect(212, 126, 12, 12);//right coaster
+        stroke(61, 113, 148);//cup outline
+        fill(109, 164, 194);//water in cup
+        ellipse(181, 132, 12, 12);//cup
+        //dinner table
+        stroke(82, 57, 19);//shadow-like outline for dinner table
+        fill(122, 81, 38);//wood-like color for dinner table and chairs
+        ellipse(200, 320, 100, 130);//dinner table
+        //left chairs
+        rect(100, 293, 10, 10);//left upper chair seat
+        rect(105, 280, 35, 35);//left upper chair connector piece
+        rect(96, 278, 7, 39);//left upper chair backrest
+        rect(100, 340, 10, 10);//left lower chair seat
+        rect(105, 325, 35, 35);//left lower chair connector piece
+        rect(96, 323, 7, 39);//left lower chair backrest
+        //right chairs
+        rect(291, 293, 10, 10);//right upper chair seat
+        rect(258, 280, 35, 35);//right upper chair connector piece
+        rect(295, 278, 7, 39);//right upper chair backrest
+        rect(291, 340, 10, 10);//right lower chair seat
+        rect(258, 325, 35, 35);//right lower chair connector piece
+        rect(295, 323, 7, 39);//right lower chair backrest
+        //other tables/counters
+        rect(0, 42, 40, 135);//table along left wall
+            //fish tank
+            stroke(0, 0, 0);//adds glass to tank
+            strokeWeight(2);
+            fill(138, 212, 235);//looks like water in tank
+            rect(5, 47, 30, 97);//fish tank
+            //plants
+            noStroke();
+            fill(100, 222, 153);//makes it look like plants in the fish tank
+            ellipse(28, 132, 11, 21);//top right plant
+            ellipse(28, 66, 11, 36);//bottom right plant
+            ellipse(15, 116, 17, 21);//left-most plant
+            //fish
+            fill(255, 181, 54);//fish color
+            ellipse(14, 58, 4, 10);//top left fish
+            ellipse(23, 79, 4, 10);//top middle fish
+            ellipse(25, 127, 4, 10);//bottom right fish
+            ellipse(16, 96, 4, 10);//bottom left fish
+            //fish food
+            fill(194, 131, 29);//looks like fish food cap
+            ellipse(25, 155, 10, 10);//fish food shape
+        //Enter Code Button
+        stroke(0, 0, 0);
+        rect(310, 280, 80, 50);//Enter Code button
+        fill(0, 0, 0);//text color
+        text("Enter", 320, 304);//text "Enter" on button
+        text("Code", 320, 323);//text "Code" on button
+};
+
+//introScreen - screen used to explain the aim of the game before play begins
+var introScreen = function() {
+    background(162, 196, 222);
+    stroke(0, 0, 0);//adds black outline to text box
+    fill(235, 208, 138);//text box color
+    rect(10, 10, 380, 380);//rectangle that holds text
+    fill(0, 0, 0);//makes text black
+    textSize(20);//makes text bigger
+    //text
+    text("You have been locked in a room. You", 25, textY);
+    text("need to figure out the code to", 25, textY + 30);
+    text("the door to escape. There are clues", 25, textY + 60);
+    text("hidden around the room to help you", 25, textY + 90);
+    text("crack the code. Hints can be anywhere", 25, textY + 120);
+    text("- so look carefully! To uncover hints,", 25, textY + 150);
+    text("click where you think a hint might be", 25, textY + 180);
+    text("hidden. Click the next button when you", 25, textY + 210);
+    text("are ready to begin.", 25, textY + 240);
+    //next button
+    fill(230, 39, 39);//button color
+    rect(290, 340, 90, 40);//button
+    fill(0, 0, 0);//makes text black
+    text("Next", 300, 368);//text "Next" on button
+};
+
+var codeScreen = function() {
+    stroke(0, 0, 0);//adds black outline to text box
+    fill(235, 208, 138);//text box color
+    rect(10, 10, 380, 380);//rectangle that holds text
+    fill(0, 0, 0);//makes text black
+    textSize(20);//makes text bigger
+    //text
+    text("Hover over the number you would like", 25, textY - 20);
+    text("to change and type the new number.", 25, textY + 10);
+    text("When you think you have it, click inside", 25, textY + 40);
+    text("the blue box. If nothing happens, try", 25, textY + 70);
+    text("another code.", 25, textY + 100);
+    //code box
+    noStroke();
+    fill(8, 29, 71);//box color
+    rect(80, 180, 240, 150);//box
+    fill(255, 255, 255);//code color
+    textSize(70);//code size
+    //code
+    text(i, 130, 280);
+    text(j, 180, 280);
+    text(k, 230, 280);
+    //next button
+    textSize(20);
+    fill(230, 39, 39);//button color
+    rect(290, 340, 90, 40);//button
+    fill(0, 0, 0);//makes text black
+    text("Back", 300, 368);//text "Next" on button
+};
+
+//fishHint - hint that appears when the fish food is clicked
+var fishHint = function() {
+    fill(235, 208, 138);//text box color
+    rect(50, 75, 300, 250);//text box
+    fill(0, 0, 0);//makes text black
+    textSize(30);//makes text bigger for a header
+    text("Hint: Fish Food!", 95, 120);//hint header
+    textSize(20);//makes text smaller for main body of text
+    //text
+    text("Whoever lives here must love", 70, 150);
+    text("fish! I wonder how many he", 70, 180);
+    text("has?", 70, 210);
+    //back button
+    fill(230, 39, 39);//button color
+    rect(250, 275, 90, 40);//button
+    fill(0, 0, 0);//makes text black
+    text("Back", 260, 300);//text "Back" on button
+};
+
+//movieHint - hint that appears when movie is clicked
+var movieHint = function() {
+    fill(235, 208, 138);//text box color
+    rect(50, 75, 300, 250);//text box
+    fill(0, 0, 0);//makes text black
+    textSize(30);//makes text bigger for header
+    text("Hint: Movie Time!", 85, 120);//header
+    textSize(20);//makes text smaller for body of text
+    //text
+    text("Whoever lives here seems to", 70, 150);
+    text("really like movies. I wonder", 70, 180);
+    text("what their favorite movie is?", 70, 210);
+    //back button
+    fill(230, 39, 39);//button color
+    rect(250, 275, 90, 40);//button
+    fill(0, 0, 0);//makes text black
+    text("Back", 260, 300);//text "Back" on button
+};
+
+var coinHint = function() {
+    fill(235, 208, 138);//text box color
+    rect(50, 75, 300, 250);//text box
+    fill(0, 0, 0);//makes text black
+    textSize(30);//makes text bigger for header
+    text("Hint: So Many Coins!", 60, 120);//header
+    textSize(20);//makes text smaller for body of text
+    //text
+    text("There are a bunch of coins", 70, 150);
+    text("here! There are 9 pennies, 9", 70, 180);
+    text("nickles, and 9 dimes. That's", 70, 210);
+    text("an odd amount of coins to", 70, 240);
+    text("have under the couch.", 70, 270);
+    //back button
+    fill(230, 39, 39);//button color
+    rect(250, 275, 90, 40);//button
+    fill(0, 0, 0);//makes text black
+    text("Back", 260, 300);//text "Back" on button
+};
+
+var winScreen = function() {
+    background(162, 196, 222);
+    stroke(0, 0, 0);//adds black outline to text box
+    fill(235, 208, 138);//text box color
+    rect(10, 10, 380, 380);//rectangle that holds text
+    fill(130, 14, 99);//makes text black
+    textSize(70);//makes text bigger
+    text("You Won!", 50, 200);
+    fill(76, 9, 120);
+    textSize(20);
+    text("Congratulations! You cracked the code!", 25, 230);
+    fill(0, 0, 0);
+    textSize(20);
+    text("Click again to restart the game!", 70, 380);
+};
+
+//Menu:
+  //Title
+  //Start Button
+  //How to Play Button
+
+//How to Play Screen:
+  //Title
+  //Text
+  //Back Button
+
+//GamePlay
+introScreen.call();
+mouseClicked = function() {
+    //clicked next button from introScreen, draws gameScreen
+    if (mouseX > 290 && mouseX < 380 && mouseY > 340 && mouseY < 380) {
+        gameScreen.call();
+    }
+    //clicked back button on hints, draws gameScreen
+    if (mouseX > 250 && mouseX < 340 && mouseY > 275 & mouseY < 315) {
+        gameScreen.call();
+    }
+    //clicked the fish food on gameScreen, draws fishHint
+    if (mouseX > 10 && mouseX < 30 && mouseY > 130 && mouseY < 155) {
+        fishHint.call();
+    }
+    //clicked the movie on gameScreen near TV, draws movieHint
+    if (mouseX > 135 && mouseX < 150 && mouseY > 20 && mouseY < 40) {
+        movieHint.call();
+    }
+    //clicked the coin under the couch on gameScreen, draws coinHint
+    if (mouseX > 111 && mouseX < 125 && mouseY > 173 && mouseY < 187) {
+        coinHint.call();
+    }
+    //clicked the Enter Code button, draws codeScreen
+    if (mouseX > 310 && mouseX < 390 && mouseY > 280 && mouseY < 330) {
+        codeScreen.call();
+    }
+    if (i === 4 && j === 5 && k === 9) {
+        winScreen.call();
+        mouseClicked = function() {
+            Program.restart();
+        };
+    }
+};
+
+keyPressed = function() {
+    if (mouseX > 130 && mouseX < 170 && mouseY > 220 && mouseY < 290) {
+        i = (key) - 48;
+        codeScreen.call();
+    }
+    if (mouseX > 150 && mouseX < 220 && mouseY > 220 && mouseY < 290) {
+        j = (key) - 48;
+        codeScreen.call();
+    }
+    if (mouseX > 230 && mouseX < 270 && mouseY > 220 && mouseY < 290) {
+        k = (key) - 48;
+        codeScreen.call();
+    }
+};
+
+//Winner Screen:
+  //Text
+  //Animation (Fireworks, something?)
+  //Play Again Button
+  //Menu Button
