@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>New webpage</title>
+        <title>Varicose Veins</title>
         <style>
             body{
                 background: rgb(181, 181, 181);
@@ -33,13 +33,13 @@
             #info {
                 float: left;
                 width: 45%;
-                margin: 5px;
+                margin: 1px;
             }
             
             #vessels {
                 float: right;
                 width: 45%;
-                margin: 5px;
+                margin: 1px;
             }
             
             img#varicose {
@@ -50,8 +50,10 @@
                 width: 50%;
             }
             
-            #veins {
-                width: 100%;
+            #veins::before {
+                content: "";
+                clear: both;
+                display: table;
             }
         </style>
     </head>
